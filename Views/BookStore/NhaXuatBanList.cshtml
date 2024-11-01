@@ -1,0 +1,9 @@
+﻿@model IEnumerable<WebBanSach.Models.NHAXUATBAN>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@Html.ActionLink(item.TenNXB, "SachByPublisherDetails", new {id = item.MaNXB })</li>
+    }
+</ul>
+

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<WebBanSach.Models.SACH>
+
+@{
+    ViewBag.Title = "SachByTopicDetails";
+    Layout = "~/Views/Share/_LayoutUser.cshtml";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="product__item">
+                <div class="product__item" onclick="location.href='@Url.Action("Details", new { id = item.Masach })';" style="cursor: pointer;">
+                    <div class="product__item__pic set-bg" data-setbg="~/Contain/img/product/product-10.jpg">
+                        <ul class="product__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6>@Html.ActionLink(@Html.DisplayFor(modelItem => item.Tensach).ToString(), "Details", new { id = item.Masach })</h6>
+                        <h5>@Html.DisplayFor(modelItem => item.Giaban)</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+
