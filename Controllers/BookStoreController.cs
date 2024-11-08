@@ -12,7 +12,7 @@ namespace WebBanSach.Controllers
 {
     public class BookStoreController : Controller
     {
-        private QLBANSACHEntities1 db = new QLBANSACHEntities1();
+        private QLBANSACHEntities2 db = new QLBANSACHEntities2();
 
         // GET: BookStore
         public ActionResult Index()

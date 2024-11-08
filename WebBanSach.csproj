@@ -158,18 +158,28 @@
     <Content Include="Contain\img\product\discount\pd-4.jpg" />
     <Content Include="Contain\img\product\discount\pd-5.jpg" />
     <Content Include="Contain\img\product\discount\pd-6.jpg" />
-    <Content Include="Contain\img\product\product-1.jpg" />
-    <Content Include="Contain\img\product\product-10.jpg" />
-    <Content Include="Contain\img\product\product-11.jpg" />
-    <Content Include="Contain\img\product\product-12.jpg" />
-    <Content Include="Contain\img\product\product-2.jpg" />
-    <Content Include="Contain\img\product\product-3.jpg" />
-    <Content Include="Contain\img\product\product-4.jpg" />
-    <Content Include="Contain\img\product\product-5.jpg" />
-    <Content Include="Contain\img\product\product-6.jpg" />
-    <Content Include="Contain\img\product\product-7.jpg" />
-    <Content Include="Contain\img\product\product-8.jpg" />
-    <Content Include="Contain\img\product\product-9.jpg" />
+    <Content Include="Contain\img\product\product_1.jpg" />
+    <Content Include="Contain\img\product\product_10.jpg" />
+    <Content Include="Contain\img\product\product_11.jpg" />
+    <Content Include="Contain\img\product\product_12.jpg" />
+    <Content Include="Contain\img\product\product_2.jpg" />
+    <Content Include="Contain\img\product\product_3.jpg" />
+    <Content Include="Contain\img\product\product_4.jpg" />
+    <Content Include="Contain\img\product\product_5.jpg" />
+    <Content Include="Contain\img\product\product_6.jpg" />
+    <Content Include="Contain\img\product\product_7.jpg" />
+    <Content Include="Contain\img\product\product_8.jpg" />
+    <Content Include="Contain\img\product\product_9.jpg" />
+    <Content Include="Contain\img\product\sach_a.jpg" />
+    <Content Include="Contain\img\product\sach_b.jpg" />
+    <Content Include="Contain\img\product\sach_c.jpg" />
+    <Content Include="Contain\img\product\sach_d.jpg" />
+    <Content Include="Contain\img\product\sach_e.jpg" />
+    <Content Include="Contain\img\product\sach_f.jpg" />
+    <Content Include="Contain\img\product\sach_g.jpg" />
+    <Content Include="Contain\img\product\sach_h.jpg" />
+    <Content Include="Contain\img\product\sach_i.jpg" />
+    <Content Include="Contain\img\product\sach_j.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Models\QLBANSACH.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -187,6 +197,8 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BookStoreController.cs" />
+    <Compile Include="Controllers\GiohangController.cs" />
+    <Compile Include="Controllers\NguoidungController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -199,6 +211,7 @@
     <Compile Include="Models\DONDATHANG.cs">
       <DependentUpon>QLBANSACH.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Giohang.cs" />
     <Compile Include="Models\KHACHHANG.cs">
       <DependentUpon>QLBANSACH.tt</DependentUpon>
     </Compile>
@@ -251,6 +264,12 @@
     <Content Include="Views\BookStore\NhaXuatBanList.cshtml" />
     <Content Include="Views\BookStore\SachByTopicDetails.cshtml" />
     <Content Include="Views\BookStore\SachByPublisherDetails.cshtml" />
+    <Content Include="Views\Nguoidung\Dangky.cshtml" />
+    <Content Include="Views\Nguoidung\Dangnhap.cshtml" />
+    <Content Include="Views\Giohang\GioHang.cshtml" />
+    <Content Include="Views\Giohang\GiohangPartial.cshtml" />
+    <Content Include="Views\Giohang\DatHang.cshtml" />
+    <Content Include="Views\Giohang\Xacnhandonhang.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

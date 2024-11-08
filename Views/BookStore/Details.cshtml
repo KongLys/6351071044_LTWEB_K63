@@ -4,77 +4,54 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Share/_LayoutUser.cshtml";
 }
-<div>
-    <h4>SACH</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Tensach)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tensach)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Giaban)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Giaban)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Mota)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Mota)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Anhbia)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Anhbia)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Ngaycapnhat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ngaycapnhat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Soluongton)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Soluongton)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CHUDE.TenChuDe)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CHUDE.TenChuDe)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NHAXUATBAN.TenNXB)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NHAXUATBAN.TenNXB)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Masach }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <div class="product__details__pic">
+                <div class="product__details__pic__item">
+                    <img class="product__details__pic__item--large"
+                         src="~/Contain/img/product/@Model.Anhbia" alt="">
+                </div>
+                <div class="product__details__pic__slider owl-carousel">
+                    <img data-imgbigurl="img/product/details/product-details-2.jpg"
+                         src="img/product/details/thumb-1.jpg" alt="">
+                    <img data-imgbigurl="img/product/details/product-details-3.jpg"
+                         src="img/product/details/thumb-2.jpg" alt="">
+                    <img data-imgbigurl="img/product/details/product-details-5.jpg"
+                         src="img/product/details/thumb-3.jpg" alt="">
+                    <img data-imgbigurl="img/product/details/product-details-4.jpg"
+                         src="img/product/details/thumb-4.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="product__details__text">
+                <h3>@Model.Tensach</h3>
+                <div class="product__details__rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </div>
+                <div class="product__details__price">@Model.Giaban đ</div>
+                <div>
+                    <p>Chủ đề: @Html.DisplayFor(model => model.CHUDE.TenChuDe)</p>
+                    <p>Nhà xuất bản: @Html.DisplayFor(model => model.NHAXUATBAN.TenNXB)</p>
+                    <p>Mô tả: @Html.DisplayFor(model => model.Mota)</p>
+                </div>
+                <a id="Datmua" class="primary-btn" href="@Url.Action("ThemGioHang", "GioHang", new { @iMasach = @Model.Masach, @strURL = Request.Url.ToString() })">
+                    ĐẶT MUA
+                </a>
+                <ul>
+                        <b>Share on</b>
+                        <div class="share">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>

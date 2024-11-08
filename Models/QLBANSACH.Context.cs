@@ -13,10 +13,10 @@ namespace WebBanSach.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLBANSACHEntities1 : DbContext
+    public partial class QLBANSACHEntities2 : DbContext
     {
-        public QLBANSACHEntities1()
-            : base("name=QLBANSACHEntities1")
+        public QLBANSACHEntities2()
+            : base("name=QLBANSACHEntities2")
         {
         }
     
