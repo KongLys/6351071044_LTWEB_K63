@@ -1,0 +1,99 @@
+﻿@model WebBanSach.Models.SACH
+
+@{
+    ViewBag.Title = "Suasach";
+    Layout = "~/Views/Share/_LayoutAdmin.cshtml";
+}
+
+<h2>ĐIỀU CHỈNH THÔNG TIN SÁCH</h2>
+
+@using (Html.BeginForm("Suasach", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Masach)
+
+    <div class="form-group">
+        Mã sách
+        <div class="col-md-10">
+            <div style="font: 18px; padding: 5px 0 5px">@Html.ValueFor(model => model.Masach) </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        Tên sách
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Tensach, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Tensach, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        Giá bán
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Giaban, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Giaban, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        Mô tả
+        <div class="col-md-10">
+            <textarea name="Mota"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        Ảnh bìa
+        <div class="col-md-10">
+            Chọn ảnh mới
+            <input type="file" name="fileUpload" />
+            <img src="@Url.Content("~/Contain/img/product/" + Model.Anhbia)" width="120px" /> (Ảnh hiện tại)
+            @ViewBag.Thongbao
+        </div>
+    </div>
+
+    <div class="form-group">
+        Ngày cập nhât
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Ngaycapnhat, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Ngaycapnhat, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        Số lượng tồn
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Soluongton, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Soluongton, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        Mã chủ đề
+        <div class="col-md-10">
+            @Html.DropDownList("MaCD")
+        </div>
+    </div>
+
+    <div class="form-group">
+        Mã nhà xuất bản
+        <div class="col-md-10">
+            @Html.DropDownList("MaNXB")
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="LƯU THAY ĐỔI" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("TRỞ VỀ", "Sach")
+</div>

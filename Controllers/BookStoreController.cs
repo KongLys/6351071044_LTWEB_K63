@@ -7,18 +7,25 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebBanSach.Models;
-
+using PagedList;
+using PagedList.Mvc;
 namespace WebBanSach.Controllers
 {
     public class BookStoreController : Controller
     {
         private QLBANSACHEntities2 db = new QLBANSACHEntities2();
 
-        // GET: BookStore
-        public ActionResult Index()
+        private List<SACH> LaySachMoi(int count)
         {
-            var sACHes = db.SACHes.Include(s => s.CHUDE).Include(s => s.NHAXUATBAN);
-            return View(sACHes.ToList());
+            return db.SACHes.OrderByDescending(a => a.Ngaycapnhat).Take(count).ToList();
+        }
+        // GET: BookStore
+        public ActionResult Index(int? page)
+        {
+            int pageSize = 5;
+            int pageNum = (page ?? 1);
+            var sachMoi = LaySachMoi(15);
+            return View(sachMoi.ToPagedList(pageNum, pageSize));
         }
 
         // GET: BookStore/Details/5
@@ -143,31 +150,45 @@ namespace WebBanSach.Controllers
             var data = db.NHAXUATBANs.ToList();
             return PartialView(data);
         }
-        public ActionResult SachByTopicDetails(int? id)
+        public ActionResult SachByTopicDetails(int? id, int? page)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var sach = from s in db.SACHes where s.MaCD == id select s;
+            int pageSize = 5;
+            int pageNum = (page ?? 1);
+            var sach = db.SACHes
+            .OrderByDescending(a => a.Ngaycapnhat)
+            .Where(a => a.MaCD == id)
+            .Take(pageSize)
+            .ToList();
             if (sach == null)
             {
                 return HttpNotFound();
             }
-            return View(sach);
+            ViewData["Id"] = id;
+            return View(sach.ToPagedList(pageNum, pageSize));
         }
-        public ActionResult SachByPublisherDetails(int? id)
+        public ActionResult SachByPublisherDetails(int? id, int? page)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var sach = from s in db.SACHes where s.MaNXB == id select s;
+            int pageSize = 5;
+            int pageNum = (page ?? 1);
+            var sach = db.SACHes
+            .OrderByDescending(a => a.Ngaycapnhat)
+            .Where(a => a.MaNXB == id)
+            .Take(pageSize)
+            .ToList();
             if (sach == null)
             {
                 return HttpNotFound();
             }
-            return View(sach);
+            ViewData["Id"] = id;
+            return View(sach.ToPagedList(pageNum, pageSize));
         }
     }
 }

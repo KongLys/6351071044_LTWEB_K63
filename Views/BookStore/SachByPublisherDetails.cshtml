@@ -1,4 +1,6 @@
-﻿@model IEnumerable<WebBanSach.Models.SACH>
+﻿@using WebBanSach.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<SACH>
 @{
     ViewBag.Title = "SachByPublisherDetails";
     Layout = "~/Views/Share/_LayoutUser.cshtml";
@@ -25,6 +27,18 @@
                 </div>
             </div>
         </div>
-
     }
 </div>
+</div>
+Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("SachByPublisherDetails", new { id = int.Parse(ViewData["Id"].ToString()), page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: block;
+        background-color: antiquewhite;
+        width: 30px;
+        text-align: center;
+    }
+</style>

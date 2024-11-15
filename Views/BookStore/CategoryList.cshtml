@@ -3,6 +3,6 @@
 <ul>
 @foreach (var item in Model)
 {
-    <li>@Html.ActionLink(item.TenChuDe, "SachByTopicDetails", new {id = item.MaCD})</li>
+    <li>@Html.ActionLink(item.TenChuDe, "SachByTopicDetails", new {id = item.MaCD, page = 1})</li>
 }
 </ul>

@@ -1,4 +1,6 @@
-﻿@model IEnumerable<WebBanSach.Models.SACH>
+﻿@using WebBanSach.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<SACH>
 
 @{
     ViewBag.Title = "Index";
@@ -25,6 +27,17 @@
                         </div>
                     </div>
             </div>
-
     }
 </div>
+Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new {page=page}))
+</div>
+<style>
+    .MenuTrang li{
+        display: block;
+        background-color: antiquewhite;
+        width: 30px;
+        text-align: center;
+    }
+</style>
